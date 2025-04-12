@@ -2,5 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:padding="24dp">
+
+        <EditText android:id="@+id/username"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="First Name" />
+
+        <EditText android:id="@+id/password"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Student ID (s12345678)" android:inputType="textPassword" />
+
+        <Button android:id="@+id/loginBtn"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Login" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
