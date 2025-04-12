@@ -15,11 +15,20 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApiService(): ApiService {
+    fun provideBaseUrl(): String = "https://nit3213api.onrender.com/"
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://nit3213api.onrender.com/")
+            .baseUrl(baseUrl) // <-- uses the baseUrl above
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
     }
 }
