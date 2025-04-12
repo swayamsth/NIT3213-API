@@ -2,6 +2,7 @@ package com.example.apiapp.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -23,6 +24,9 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.loginBtn).setOnClickListener {
             val user = findViewById<EditText>(R.id.username).text.toString()
             val pass = findViewById<EditText>(R.id.password).text.toString()
+
+            Log.d("LoginInput", "username=$user, password=$pass")
+
             viewModel.login(user, pass, "sydney") // replace as needed
         }
 

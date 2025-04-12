@@ -1,5 +1,6 @@
 package com.example.apiapp.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,12 +23,14 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val res = repository.login(location, LoginRequest(username, password))
-                if (res.isSuccessful) {
+                if (res.isSuccessful && res.body() != null) {
                     _loginResult.value = Result.success(res.body()!!.keypass)
                 } else {
+                    Log.e("Login", "Error code: ${res.code()}, message: ${res.errorBody()?.string()}")
                     _loginResult.value = Result.failure(Exception("Login failed"))
                 }
             } catch (e: Exception) {
+                Log.e("Login", "Exception: ${e.message}")
                 _loginResult.value = Result.failure(e)
             }
         }
