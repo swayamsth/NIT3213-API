@@ -12,8 +12,8 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
 
         val entity = intent.getSerializableExtra("entity") as Entity
-        findViewById<TextView>(R.id.property1).text = entity.property1
-        findViewById<TextView>(R.id.property2).text = entity.property2
+        findViewById<TextView>(R.id.property1).text = entity.dishName
+        findViewById<TextView>(R.id.property2).text = entity.origin
         findViewById<TextView>(R.id.description).text = entity.description
     }
 }
