@@ -1,6 +1,8 @@
 package com.example.apiapp.ui.dashboard
 
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.*
 import com.example.apiapp.R
@@ -8,33 +10,32 @@ import com.example.apiapp.data.model.Entity
 
 class EntityAdapter(
     private val onClick: (Entity) -> Unit
-) : ListAdapter<Entity, EntityAdapter.ViewHolder>(DIFF) {
+) : ListAdapter<Entity, EntityAdapter.EntityViewHolder>(DIFF) {
 
     companion object {
         val DIFF = object : DiffUtil.ItemCallback<Entity>() {
-            override fun areItemsTheSame(oldItem: Entity, newItem: Entity) =
-                oldItem.property1 == newItem.property1
-
-            override fun areContentsTheSame(oldItem: Entity, newItem: Entity) =
-                oldItem == newItem
+            override fun areItemsTheSame(old: Entity, new: Entity) = old.dishName == new.dishName
+            override fun areContentsTheSame(old: Entity, new: Entity) = old == new
         }
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class EntityViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val prop1: TextView = view.findViewById(R.id.prop1)
+        private val prop2: TextView = view.findViewById(R.id.prop2)
+
         fun bind(entity: Entity) {
-            itemView.findViewById<TextView>(R.id.prop1).text = entity.property1
-            itemView.findViewById<TextView>(R.id.prop2).text = entity.property2
+            prop1.text = entity.dishName
+            prop2.text = entity.origin
             itemView.setOnClickListener { onClick(entity) }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_entity, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EntityViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_entity, parent, false)
+        return EntityViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EntityViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 }
