@@ -1,5 +1,6 @@
 package com.example.apiapp.ui.dashboard
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,9 +21,20 @@ class DashboardViewModel @Inject constructor(
 
     fun loadEntities(keypass: String) {
         viewModelScope.launch {
-            val res = repository.getDashboard(keypass)
-            if (res.isSuccessful) {
-                _entities.value = res.body()?.entities ?: emptyList()
+            try {
+                val res = repository.getDashboard(keypass)
+                if (res.isSuccessful && res.body() != null) {
+                    val data = res.body()
+                    Log.d("Dashboard", "Entity count: ${data?.entityTotal}, list: ${data?.entities}")
+                    data?.entities?.forEachIndexed { i, entity ->
+                        Log.d("Dashboard", "[$i] ${entity.dishName} - ${entity.origin}")
+                    }
+                    _entities.value = data?.entities ?: emptyList()
+                } else {
+                    Log.e("Dashboard", "Response error: ${res.code()} - ${res.errorBody()?.string()}")
+                }
+            } catch (e: Exception) {
+                Log.e("Dashboard", "Exception: ${e.message}")
             }
         }
     }
