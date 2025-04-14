@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="24dp"
+    android:background="@android:color/white">
 
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:padding="24dp">
+    <LinearLayout
+        android:id="@+id/detailContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            <TextView android:id="@+id/property1"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:textSize="18sp" android:textStyle="bold" />
+        <TextView
+            android:id="@+id/dishName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dish Name"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="8dp" />
 
-            <TextView android:id="@+id/property2"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:textSize="16sp" android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Origin"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#444444" />
 
-            <TextView android:id="@+id/description"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:textSize="14sp" android:paddingTop="16dp" />
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/mealType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_meal_type"
+            android:text="Meal Type"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="12dp" />
 
+        <TextView
+            android:id="@+id/mainIngredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Main Ingredient"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#444444"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="#333333"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="6dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backToDashboardBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back to Dashboard"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</ScrollView>
