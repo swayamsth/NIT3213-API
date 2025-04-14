@@ -2,8 +2,6 @@
 
 This Android app, developed for the NIT3213 Mobile Application Development final assignment, uses Kotlin and Jetpack components. It allows users to log in using their first name and student ID, retrieve a list of cultural dishes from the "vu-nit3213-api", and view detailed information about each dish.
 
----
-
 ## Features
 
 - Login screen with input validation
@@ -12,8 +10,6 @@ This Android app, developed for the NIT3213 Mobile Application Development final
 - MVVM architecture with ViewModel and Repository
 - REST API integration
 - Clean Material Design UI
-
----
 
 ## Project Structure
 ```
@@ -42,13 +38,12 @@ com.example.assignmentlast/
 ├── MainActivity.kt
 └── MyApp.kt
 ```
----
 
 ## Build & Run Instructions
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/apiapp.git
+   git clone https://github.com/swayamsth/NIT3213-API.git
    ```
 
 2. Open the project in Android Studio (Arctic Fox or later recommended)
@@ -67,8 +62,6 @@ com.example.assignmentlast/
 
 5. Run the app on an emulator or physical device using: ▶️ Run > Run 'app'
 
----
-
 ## Dependencies
 - Gson
 - Hilt (DI)
@@ -78,17 +71,13 @@ com.example.assignmentlast/
 - Kotlin Coroutines
 - RecylerView & CardView
 
----
-
 ## Unit Testing
 
 Unit Tests are located in:
 ```
-app/src/test/java/com/example/apiapp/
+app/src/test/java/com.example.apiapp/
 
 ```
-
----
 
 ## Author
 - Name: Swayam Shrestha
