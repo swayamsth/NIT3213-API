@@ -63,6 +63,7 @@ com.example.assignmentlast/
 5. Run the app on an emulator or physical device using: ▶️ Run > Run 'app'
 
 ## Dependencies
+- Retrofit
 - Gson
 - Hilt (DI)
 - Lifecycle ViewModel & LiveData
@@ -75,7 +76,7 @@ com.example.assignmentlast/
 
 Unit Tests are located in:
 ```
-app/src/test/java/com.example.apiapp/
+app/src/test/java/com/example/apiapp/
 
 ```
 
