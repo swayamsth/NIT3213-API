@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
             Log.d("LoginInput", "username=$user, password=$pass")
 
-            viewModel.login(user, pass, "sydney") // replace as needed
+            viewModel.login(user, pass, "sydney")
         }
 
         viewModel.loginResult.observe(this) { result ->

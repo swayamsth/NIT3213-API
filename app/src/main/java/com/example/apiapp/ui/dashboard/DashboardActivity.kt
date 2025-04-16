@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apiapp.R
 import com.example.apiapp.data.model.Entity
 import com.example.apiapp.ui.details.DetailsActivity
+import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.log
 
 @AndroidEntryPoint
 class DashboardActivity : AppCompatActivity() {
@@ -43,6 +45,13 @@ class DashboardActivity : AppCompatActivity() {
         viewModel.entities.observe(this) { list ->
             Log.d("DashboardActivity", "Entity list size: ${list.size}")
              adapter.submitList(list)
+        }
+
+        val logoutBtn = findViewById<MaterialButton>(R.id.logoutBtn)
+
+        logoutBtn.setOnClickListener {
+
+            finish()
         }
     }
 }
